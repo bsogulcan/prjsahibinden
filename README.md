@@ -1,3 +1,4 @@
 # prjsahibinden
 Servisimi yazarken sahibindenin görüntülenme sayısını sadece ilan sahibine göstediğini farkettim. Bu sebeple WebBrowser componenti yardımıyla login olup daha sonra ilgili ilanlarımın detay sayfalarından görüntülenme sayılarını ve fiyat bilgilerimi aldım. Core ile worker projesi oluşturduğumda WebBrowser componentini kullanamadığım için servisimi windows form uygulaması olarak tamamladım. 
 Örnek api çağırımı: http://shbndn.puanimcepte.com/data/865516470
+Veritabanı olarak mssql kullandım, connection bilgilerine kod tarafından ulabailirsiniz. İlanlarımı tuttuğum tabloda ürünün fiyatı belirlediğiniz tutarın altına düştüğünde mail göndermesi adına MIN_PRICE ve EMAIL_ADRESS kolonlarını kullanabilirsiniz. Maili servis tarafında gönderiyorum fakat her saat çalıştığında fiyat kontrolünü yapıp maili gönderiyor. Yani mail için ayrı timer kullanmadım.
