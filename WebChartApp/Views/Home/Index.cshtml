@@ -1,0 +1,43 @@
+@model WebChartApp.Models.MainModel
+
+    @{
+        ViewBag.Title = "Ýlanlar";
+    }
+    <div class="card-group">
+
+        @foreach (WebChartApp.Models.Advertisement item in Model.advertisements)
+        {
+            <div class="card" style="padding:10px">
+                <img class="card-img-top" style="min-height:350px;" src="@item.AD_PICTURE" alt="Card image">
+                <div class="card-body">
+                    <h4 class="card-title">@item.AD_TITLE</h4>
+                    @using (Html.BeginForm("GetHistory", "Home", item, FormMethod.Post))
+                    {
+                        <input type="submit" class="btn btn-primary" value="History" />
+                    }
+
+                </div>
+            </div>
+        }
+
+
+    </div>
+
+
+    @(Html.DevExtreme().Chart()
+    .ID("chart")
+    .Palette(VizPalette.Violet)
+    .CommonSeriesSettings(s => s
+        .ArgumentField("CHECK_DATE")
+        .ValueField("AD_VIEWS")
+        .Type(SeriesType.StackedLine)
+    )
+    .SeriesTemplate(t => t
+        .NameField("AD_TITLE")
+    )
+    .Title(t => t
+        .Text("All Advertisements")
+        .Subtitle("Count of View")
+    )
+    .DataSource(Model.histories)
+)

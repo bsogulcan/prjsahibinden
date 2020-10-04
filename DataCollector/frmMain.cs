@@ -36,7 +36,7 @@ namespace DataCollector
                 this.Close();
 
             timer = new Timer();
-            timer.Interval = 1000;
+            timer.Interval = 3600000;
             timer.Tick += Timer_Tick;
         }
 
